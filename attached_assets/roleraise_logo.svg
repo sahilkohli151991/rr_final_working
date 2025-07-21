@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="orb-gradient" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="arrow-gradient" x1="30" y1="100" x2="110" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="64" cy="64" r="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity="0.44"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Abstract rising orb -->
+  <ellipse cx="64" cy="68" rx="54" ry="54" fill="url(#orb-gradient)"/>
+  <ellipse cx="64" cy="68" rx="44" ry="44" fill="url(#glow)"/>
+  <!-- Dynamic upward arrow, stylized as a rising path -->
+  <path d="M36 92 Q64 48, 92 36" stroke="url(#arrow-gradient)" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <polygon points="89,29 102,39 92,36 89,46" fill="#fbbf24"/>
+  <!-- Abstract steps (growth) -->
+  <rect x="49" y="81" width="8" height="8" rx="2" fill="#fff" opacity="0.85"/>
+  <rect x="58" y="70" width="8" height="13" rx="2" fill="#fff" opacity="0.85"/>
+  <rect x="68" y="56" width="8" height="25" rx="2" fill="#fff" opacity="0.85"/>
+  <rect x="78" y="44" width="8" height="37" rx="2" fill="#fff" opacity="0.85"/>
+  <!-- Brand Name -->
+  <text x="50%" y="124" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="700" fill="#fff" opacity="0.99">RoleRaise</text>
+</svg>

@@ -1,0 +1,135 @@
+/* Logo Ticker Styles */
+.logo-ticker-container {
+  width: 100%;
+  background: linear-gradient(90deg, #f8fbff 0%, #f0f6ff 100%);
+  padding: 8px 0 4px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.ticker-content {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: ticker-scroll 26s linear infinite;
+  height: 36px;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.ticker-item img {
+  max-height: 28px;
+  min-width: 60px;
+  object-fit: contain;
+  margin: 0 18px;
+  filter: drop-shadow(0 2px 6px #e0e7ef);
+  transition: transform 0.18s cubic-bezier(.7,.2,.3,1);
+}
+
+.ticker-item img:hover {
+  transform: scale(1.07) translateY(-1px);
+}
+
+.ticker-item:hover {
+  opacity: 1;
+}
+
+.ticker-logo {
+  height: 80px;
+  width: auto;
+  max-width: 200px;
+  filter: grayscale(0);
+  transition: all 0.3s ease;
+}
+
+.ticker-logo:hover {
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Scrolling animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fade edges for seamless effect */
+.ticker-wrapper::before,
+.ticker-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ticker-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.ticker-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ticker-content {
+    gap: 40px;
+    animation-duration: 25s;
+  }
+  
+  .ticker-logo {
+    height: 64px;
+    max-width: 170px;
+  }
+  
+  .logo-ticker-container {
+    padding: 45px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .ticker-content {
+    gap: 30px;
+    animation-duration: 20s;
+  }
+  
+  .ticker-logo {
+    height: 52px;
+    max-width: 140px;
+  }
+  
+  .logo-ticker-container {
+    padding: 35px 0;
+  }
+}
