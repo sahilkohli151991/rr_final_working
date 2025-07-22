@@ -1,12 +1,19 @@
 import { loadStripe } from '@stripe/stripe-js';
+import React from 'react';
 
-// Initialize Stripe with the publishable key
-const stripePromise = loadStripe('pk_test_51MPfj5JSLOfCCYKO5q84BcSai24N9d4n5d8XaWplBcteTBBcjCPsLAwTh7TJQO5vVnyAwONCpiNbsCAOLISTtfD900zxSeufUH');
+const STRIPE_PUBLISHABLE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_test_51MPfj5JSLOfCCYKO5q84BcSai24N9d4n5d8XaWplBcteTBBcjCPsLAwTh7TJQO5vVnyAwONCpiNbsCAOLISTtfD900zxSeufUH';
+const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
 
-export function StripeCheckoutButton({ amount, name, description }: { amount: number, name: string, description: string }) {
+type StripeCheckoutButtonProps = {
+  amount: number;
+  name: string;
+  description: string;
+};
+
+const StripeCheckoutButton: React.FC<StripeCheckoutButtonProps> = ({ amount, name, description }) => {
   const handleClick = async () => {
     const successUrl = `${window.location.origin}/payment-success?session_id={CHECKOUT_SESSION_ID}`;
-    const cancelUrl = window.location.href;
+    const cancelUrl = `${window.location.origin}/payment-cancel`;
     const res = await fetch('/api/create-checkout-session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -34,4 +41,6 @@ export function StripeCheckoutButton({ amount, name, description }: { amount: nu
       Pay with Card (Stripe)
     </button>
   );
-}
+};
+
+export default StripeCheckoutButton;

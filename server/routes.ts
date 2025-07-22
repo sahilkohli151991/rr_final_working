@@ -7,30 +7,41 @@ import express from 'express';
 import Stripe from 'stripe';
 import dotenv from 'dotenv';
 
-// Load environment variables
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config();
-}
+dotenv.config();
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('STRIPE_SECRET_KEY is not set in environment variables');
-}
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2025-06-30.basil', // Match the API version with the installed Stripe types
-});
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+if (!stripeSecretKey) throw new Error('STRIPE_SECRET_KEY missing in environment');
+const stripe = new Stripe(stripeSecretKey, { apiVersion: '2025-06-30.basil' });
 
 const router = express.Router();
 
-// Type for the checkout session request body
-interface CheckoutSessionRequest {
-  amount: number;
-  name: string;
-  description: string;
-  successUrl: string;
-  cancelUrl: string;
-  metadata?: Record<string, string>;
-}
+// Stripe Checkout session endpoint
+router.post('/api/create-checkout-session', async (req, res) => {
+  try {
+    const { amount, name, description, successUrl, cancelUrl } = req.body;
+    if (!amount || !name || !description || !successUrl || !cancelUrl) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [{
+        price_data: {
+          currency: 'usd',
+          product_data: { name, description },
+          unit_amount: Math.round(Number(amount) * 100),
+        },
+        quantity: 1,
+      }],
+      mode: 'payment',
+      success_url: successUrl,
+      cancel_url: cancelUrl,
+    });
+    res.json({ id: session.id, url: session.url });
+  } catch (err) {
+    console.error('Stripe error:', err);
+    res.status(500).json({ error: 'Stripe session creation failed', details: err instanceof Error ? err.message : err });
+  }
+});
 
 // Add this middleware to log all requests
 router.use((req, res, next) => {
@@ -41,125 +52,7 @@ router.use((req, res, next) => {
   next();
 });
 
-router.post('/api/create-checkout-session', async (req, res) => {
-  console.log('=== Received checkout session request ===');
-  console.log('Request body:', JSON.stringify(req.body, null, 2));
-  console.log('Request headers:', JSON.stringify(req.headers, null, 2));
-  
-  try {
-    const { 
-      amount, 
-      name, 
-      description, 
-      successUrl, 
-      cancelUrl,
-      metadata = {}
-    } = req.body as CheckoutSessionRequest;
-
-    // Validate required fields
-    console.log('Validating request data:', { 
-      amount, 
-      name, 
-      description, 
-      successUrl, 
-      cancelUrl,
-      metadata
-    });
-    
-    if (!amount || !name || !description || !successUrl || !cancelUrl) {
-      return res.status(400).json({ 
-        error: 'Missing required fields: amount, name, description, successUrl, cancelUrl' 
-      });
-    }
-
-    // Create a checkout session with enhanced logging
-    console.log('Creating Stripe checkout session with:', {
-      amount,
-      name,
-      description,
-      successUrl,
-      cancelUrl,
-      metadata,
-      stripeKey: process.env.STRIPE_SECRET_KEY ? 'Key is set' : 'Missing Stripe key!'
-    });
-    
-    try {
-      const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
-        line_items: [{
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: name.substring(0, 100), // Ensure name is not too long
-              description: description ? description.substring(0, 300) : '',
-            },
-            unit_amount: Math.round(amount * 100), // Convert to cents
-          },
-          quantity: 1,
-        }],
-        mode: 'payment',
-        success_url: successUrl,
-        cancel_url: cancelUrl,
-        metadata: {
-          ...metadata,
-          application: 'RoleRaise',
-          timestamp: new Date().toISOString()
-        },
-      });
       
-      console.log('Successfully created Stripe session:', session.id);
-      return session;
-
-      res.json({ 
-        success: true, 
-        sessionId: session.id,
-        publishableKey: process.env.STRIPE_PUBLIC_KEY,
-        url: session.url // Include the checkout URL in the response
-      });
-    } catch (error: unknown) {
-      // Type assertion for Stripe errors
-      const stripeError = error as {
-        type?: string;
-        code?: string;
-        message: string;
-        statusCode?: number;
-        raw?: any;
-      };
-      
-      console.error('Stripe API error:', {
-        message: stripeError.message,
-        type: 'type' in stripeError ? stripeError.type : 'unknown',
-        code: 'code' in stripeError ? stripeError.code : 'unknown',
-        statusCode: stripeError.statusCode,
-        raw: stripeError.raw
-      });
-      
-      res.status(500).json({ 
-        success: false,
-        error: 'Failed to create checkout session',
-        details: {
-          message: stripeError.message,
-          type: 'type' in stripeError ? stripeError.type : 'unknown',
-          code: 'code' in stripeError ? stripeError.code : 'unknown',
-          statusCode: stripeError.statusCode
-        }
-      });
-    }
-  } catch (err: unknown) {
-    const error = err as Error;
-    console.error('Server error during checkout creation:', {
-      message: error.message,
-      stack: error.stack
-    });
-    
-    res.status(500).json({ 
-      success: false,
-      error: 'Internal server error',
-      details: error.message || 'Unknown error',
-      timestamp: new Date().toISOString()
-    });
-  }
-});
 
 export default router;
 

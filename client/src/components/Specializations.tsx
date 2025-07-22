@@ -1,4 +1,5 @@
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { motion } from 'framer-motion';
 
 const specializations = [
   {
@@ -70,12 +71,21 @@ export function Specializations() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {specializations.map((spec, index) => (
-            <div key={index} className="text-center bg-gray-50 p-6 rounded-xl responsive-card">
+            <motion.div
+              key={index}
+              className="text-center bg-gray-50 p-6 rounded-xl responsive-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: index * 0.08, duration: 0.5, type: 'spring' }}
+              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(99,91,255,0.10)" }}
+              whileTap={{ scale: 0.97 }}
+            >
               <div className="text-4xl mb-4">{spec.icon}</div>
               <h3 className="text-xl font-medium text-gray-900 mb-3">{spec.title}</h3>
               <p className="text-gray-600 font-light mb-4">{spec.description}</p>
               <div className="text-primary font-medium">{spec.salary}</div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

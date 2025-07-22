@@ -110,7 +110,7 @@ export function Hero() {
         </motion.div>
         {/* Subheading */}
         <motion.p
-          className="text-lg md:text-xl lg:text-2xl text-gray-600 text-center mb-12 max-w-3xl font-medium leading-relaxed"
+          className="text-lg md:text-xl lg:text-2xl text-gray-700 text-center mb-12 max-w-3xl font-medium leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={controls}
           variants={{ visible: { opacity: 1, y: 0, transition: { delay: 0.3, duration: 0.8 } } }}

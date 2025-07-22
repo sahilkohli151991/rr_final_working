@@ -135,13 +135,3 @@ const StripePaymentForm: React.FC<StripePaymentFormProps> = ({
 // Export the form component for use in other components
 export const CheckoutForm = StripePaymentForm;
 
-// Also export the default wrapped version
-export const StripePayment: React.FC<StripePaymentFormProps> = (props) => {
-  return (
-    <Elements stripe={stripePromise}>
-      <StripePaymentForm {...props} />
-    </Elements>
-  );
-};
-
-export default StripePayment;

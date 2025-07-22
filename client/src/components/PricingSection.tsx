@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Zap, Briefcase, Award, Rocket } from 'lucide-react';
-import { StripeCheckoutButton } from './ui/StripeCheckoutButton';
+import StripeCheckoutButton from './ui/StripeCheckoutButton';
+import { motion } from 'framer-motion';
 
 interface Feature {
   text: string;
@@ -113,11 +114,16 @@ const PricingSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {plans.map((plan, index) => (
-          <div
+          <motion.div
             key={plan.id}
             className={`rounded-2xl bg-white p-8 shadow-xl border-2 transition-all duration-200 ${
               plan.popular ? 'border-blue-500 scale-105' : 'border-gray-100'
             }`}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.15, duration: 0.6, type: 'spring' }}
+            whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(99,91,255,0.12)" }}
+            whileTap={{ scale: 0.98 }}
           >
             <div className={cardContentClass}>
               <div>
@@ -172,15 +178,14 @@ const PricingSection = () => {
               </div>
 
               <div className={buttonContainerClass}>
-                <StripeCheckoutButton 
-                  amount={currency === 'USD' ? plan.price.usd : plan.price.inr} 
+                <StripeCheckoutButton
+                  amount={currency === 'USD' ? plan.price.usd : plan.price.inr}
                   name={plan.name}
-                  description={`${plan.level} - ${plan.duration} program`}
-                  className="w-full py-3 px-6 bg-[#635bff] hover:bg-[#3f2b96] text-white font-medium rounded-lg transition-colors duration-200 mt-4"
-                />        
+                  description={`${plan.level} - ${plan.duration}`}
+                />
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

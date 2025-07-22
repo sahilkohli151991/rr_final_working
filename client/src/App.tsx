@@ -10,10 +10,16 @@ import NotFound from "@/pages/not-found";
 import Preloader from "@/components/Preloader";
 import "@/components/Preloader.css";
 
+import PaymentSuccess from "@/pages/payment-success";
+
+import PaymentCancel from "@/pages/payment-cancel";
+
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/payment-success" component={PaymentSuccess} />
+      <Route path="/payment-cancel" component={PaymentCancel} />
       <Route component={NotFound} />
     </Switch>
   );

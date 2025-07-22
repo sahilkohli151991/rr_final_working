@@ -1,4 +1,5 @@
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { motion } from 'framer-motion';
 import payalImage from "@assets/payal_1752659516427.jpeg";
 import nimishaImage from "@assets/Nimisha Sainaini_1752659516427.jpeg";
 import rajatImage from "@assets/Rajat_1752659516427.jpeg";
@@ -113,9 +114,15 @@ export function MentorSection() {
         <div className="w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {mentors.map((mentor, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="flex flex-col items-center bg-white rounded-2xl shadow p-6 border border-gray-100"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.08, duration: 0.5, type: 'spring' }}
+                whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(99,91,255,0.10)" }}
+                whileTap={{ scale: 0.97 }}
               >
                 <img
                   src={mentor.image}
@@ -129,7 +136,7 @@ export function MentorSection() {
                 <h3 className="text-lg font-bold text-gray-900 mb-1">{mentor.name}</h3>
                 <div className="text-blue-700 text-sm font-semibold mb-1">{mentor.role}</div>
                 <div className="text-xs text-gray-500 text-center">{mentor.company}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

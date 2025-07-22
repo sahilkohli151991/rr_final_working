@@ -32,12 +32,14 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-20 md:py-32 bg-gradient-to-b from-blue-50 via-white to-blue-100 px-4 border-b border-gray-100">
-      <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+    <section id="contact" className="relative py-20 md:py-32 bg-gradient-to-b from-blue-50 via-white to-blue-100 px-4 border-b border-gray-100 overflow-hidden">
+  {/* Decorative blurred accent */}
+  <div className="absolute -top-12 -left-12 w-48 h-48 bg-gradient-to-br from-blue-300 to-blue-100 opacity-30 rounded-full blur-2xl animate-spin-slow z-0" />
+      <div className="max-w-2xl mx-auto text-center relative z-10">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight drop-shadow-lg">
           Get in <span className="text-blue-600">Touch</span>
         </h2>
-        <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-xl mx-auto font-semibold">
           Have questions, want a free consult, or ready to accelerate your career? Fill out the form and our team will get back to you within 24 hours.
         </p>
         {showSuccess ? (
@@ -45,7 +47,7 @@ export function ContactSection() {
             Thank you! Your message has been sent. We'll get back to you soon.
           </div>
         ) : (
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-6 bg-white/80 rounded-2xl shadow-2xl border border-blue-100 p-8 backdrop-blur-md transition-shadow duration-300 focus-within:shadow-blue-200 hover:shadow-blue-200 animate-fade-in" onSubmit={handleSubmit}>
           <input
             type="text"
               name="name"
@@ -75,7 +77,7 @@ export function ContactSection() {
           />
           <button
             type="submit"
-            className="w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-lg shadow hover:bg-blue-700 transition"
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 text-white font-bold text-lg shadow-lg hover:shadow-blue-400/60 focus:shadow-blue-400/80 transition-all duration-200 outline-none ring-0 focus:ring-2 focus:ring-blue-300"
               disabled={isSubmitting}
           >
               {isSubmitting ? "Sending..." : "Send Message"}

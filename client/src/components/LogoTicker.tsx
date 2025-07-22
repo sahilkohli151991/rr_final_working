@@ -8,7 +8,7 @@ const logos: string[] = [
   "/attached_assets/KPMG_logo.png",
   "/attached_assets/Meta_logo.png",
   "/attached_assets/Netflix_logo.png",
-  "/attached_assets/Stripe_Logo.png",
+
   "/attached_assets/X_logo.png",
   "/attached_assets/amazon_logo.png",
   "/attached_assets/google_logo.png",
