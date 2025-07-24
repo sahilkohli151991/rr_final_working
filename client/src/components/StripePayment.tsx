@@ -1,17 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-// Import from @stripe/react-stripe-js for React components
-import { Elements, useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-// Import from @stripe/stripe-js for core Stripe types
-import type { Stripe, PaymentIntent } from '@stripe/stripe-js';
 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
-  // In Vite, we should use import.meta.env instead of process.env
-  // Default to the test key if environment variable is not set
-  import.meta.env.VITE_STRIPE_PUBLIC_KEY || 'pk_test_51MPfj5JSLOfCCYKO5q84BcSai24N9d4n5d8XaWplBcteTBBcjCPsLAwTh7TJQO5vVnyAwONCpiNbsCAOLISTtfD900zxSeufUH'
-);
 
 interface StripePaymentFormProps {
   amount: number;

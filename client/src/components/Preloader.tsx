@@ -30,7 +30,11 @@ const Preloader: React.FC<{ onComplete?: () => void }> = ({ onComplete }) => {
     <div className="preloader-bg roleraise-preloader">
       {/* RoleRaise SVG logo with glow animation */}
       <div className="roleraise-logo-preloader">
-        
+        <img
+          src="/roleraise_final_logo.png"
+          alt="RoleRaise Logo"
+          style={{ height: 64, width: 'auto', margin: '0 auto', display: 'block' }}
+        />
       </div>
       {/* Roleraise name fade in */}
       <div className="roleraise-name">RoleRaise</div>

@@ -1,5 +1,13 @@
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { motion } from 'framer-motion';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from './ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 import payalImage from "@assets/payal_1752659516427.jpeg";
 import nimishaImage from "@assets/Nimisha Sainaini_1752659516427.jpeg";
 import rajatImage from "@assets/Rajat_1752659516427.jpeg";
@@ -110,9 +118,52 @@ export function MentorSection() {
           </p>
         </div>
         
-        {/* Mentor Grid with fixed heights and proper alignment */}
+        {/* Responsive Mentor Cards: Carousel for mobile, grid for tablet/desktop */}
         <div className="w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {/* Mobile Carousel (≤640px) */}
+          <div className="block sm:hidden">
+            <Carousel
+              opts={{ loop: true, align: 'center' }}
+              plugins={[Autoplay({ delay: 5500, stopOnInteraction: true })]}
+              className="relative"
+            >
+               <CarouselContent>
+                {mentors.map((mentor, index) => (
+                  <CarouselItem key={index}>
+                    <motion.div
+                      className="flex flex-col items-center bg-white rounded-2xl shadow p-6 border border-gray-100 mx-2"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ delay: index * 0.08, duration: 0.5, type: 'spring' }}
+                      whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(99,91,255,0.10)' }}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      <img
+                        src={mentor.image}
+                        alt={mentor.name}
+                        className="w-24 h-24 rounded-full object-cover border-2 border-blue-100 mb-4"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = 'https://via.placeholder.com/150';
+                        }}
+                      />
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">{mentor.name}</h3>
+                      <div className="text-blue-700 text-sm font-semibold mb-1">{mentor.role}</div>
+                      <div className="text-xs text-gray-500 text-center">{mentor.company}</div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center gap-4 mt-4">
+                <CarouselPrevious staticPosition={true} />
+                <CarouselNext staticPosition={true} />
+              </div>
+            </Carousel>
+          </div>
+
+          {/* Tablet/Desktop Grid (≥641px) */}
+          <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {mentors.map((mentor, index) => (
               <motion.div
                 key={index}
@@ -121,7 +172,7 @@ export function MentorSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.08, duration: 0.5, type: 'spring' }}
-                whileHover={{ scale: 1.04, boxShadow: "0 8px 32px rgba(99,91,255,0.10)" }}
+                whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(99,91,255,0.10)' }}
                 whileTap={{ scale: 0.97 }}
               >
                 <img

@@ -1,5 +1,13 @@
 import { StarFilledIcon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from './ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const testimonials = [
   {
@@ -88,7 +96,53 @@ export function SuccessSection() {
       >
         RoleRaise alumni have landed roles at FAANG, unicorns, and fast-growing startups—see what’s possible.
       </motion.p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl z-10">
+      {/* Mobile Carousel (≤640px) */}
+      <div className="block sm:hidden w-full max-w-2xl mx-auto z-10">
+        <Carousel
+          opts={{ loop: true, align: 'center' }}
+          plugins={[Autoplay({ delay: 5500, stopOnInteraction: true })]}
+          className="relative"
+        >
+          <CarouselContent>
+            {testimonials.map((testimonial, i) => (
+              <CarouselItem key={testimonial.name}>
+                <motion.div
+                  className="relative bg-white rounded-3xl shadow-2xl p-8 flex flex-col justify-between min-h-[340px] h-[500px] border-2 border-gray-100 transition-transform duration-300 hover:scale-105 group overflow-hidden"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ delay: 0.1 + i * 0.13, duration: 0.7, type: 'spring', bounce: 0.45, ease: 'easeOut' }}
+                >
+                  {/* Animated floating overlay */}
+                  <motion.div
+                    className="absolute -top-10 -left-10 w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-400 opacity-10 rounded-full blur-3xl z-0 animate-pulse"
+                    animate={{ scale: [1, 1.07, 1] }}
+                    transition={{ repeat: Infinity, duration: 9 + i, ease: 'easeInOut' }}
+                  />
+                  <img src={testimonial.image} alt={testimonial.name} className="w-20 h-20 rounded-full object-cover border-4 border-blue-100 shadow-lg mb-6 z-10" />
+                  <h3 className="text-xl font-bold text-gray-900 mb-1 z-10 text-center">{testimonial.name}</h3>
+                  <span className="text-sm text-blue-700 font-semibold mb-2 z-10 text-center block">{testimonial.role}</span>
+                  <p className="text-base text-gray-600 mb-0 text-center z-10 break-words flex-1 flex items-center justify-center">{testimonial.quote}</p>
+                  {/* Subtle animated border for all cards */}
+                  <motion.div
+                    className="absolute inset-0 rounded-3xl pointer-events-none z-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 0.09, 0.17, 0.09, 0], scale: [1, 1.01, 1.03, 1.01, 1] }}
+                    transition={{ repeat: Infinity, duration: 8 + i, ease: 'easeInOut' }}
+                    style={{ background: 'linear-gradient(135deg, #93c5fd 0%, #e0e7ff 100%)' }}
+                  />
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="flex justify-center gap-4 mt-4">
+            <CarouselPrevious staticPosition={true} />
+            <CarouselNext staticPosition={true} />
+          </div>
+        </Carousel>
+      </div>
+      {/* Tablet/Desktop Grid (≥641px) */}
+      <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl z-10">
         {testimonials.map((testimonial, i) => (
           <motion.div
             key={testimonial.name}

@@ -222,19 +222,49 @@ export function MentorshipForm({ isOpen, onClose }: MentorshipFormProps) {
                       </select>
                     </div>
 
-                    {/* Current Salary Input */}
-                    {renderSalaryInput(
-                      'currentSalary',
-                      'Current Salary (Optional)',
-                      'e.g., 80,000'
-                    )}
+                    {/* Current Salary Dropdown */}
+                    <div className="space-y-2">
+                      <label htmlFor="currentSalary" className="block text-sm font-medium text-gray-700">
+                        Current Salary (Optional) ($)
+                      </label>
+                      <select
+                        id="currentSalary"
+                        name="currentSalary"
+                        value={formData.currentSalary}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none bg-white"
+                      >
+                        <option value="">Select range</option>
+                        <option value="0-50k">$0 - $50k</option>
+                        <option value="50k-100k">$50k - $100k</option>
+                        <option value="100k-150k">$100k - $150k</option>
+                        <option value="150k-200k">$150k - $200k</option>
+                        <option value="200k-250k">$200k - $250k</option>
+                        <option value="300k+">$300k+</option>
+                      </select>
+                    </div>
 
-                    {/* Target Salary Input */}
-                    {renderSalaryInput(
-                      'targetSalary',
-                      'Target Salary (Optional)',
-                      'e.g., 200,000'
-                    )}
+                    {/* Target Salary Dropdown */}
+                    <div className="space-y-2">
+                      <label htmlFor="targetSalary" className="block text-sm font-medium text-gray-700">
+                        Target Salary (Optional) ($)
+                      </label>
+                      <select
+                        id="targetSalary"
+                        name="targetSalary"
+                        value={formData.targetSalary}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none bg-white"
+                      >
+                        <option value="">Select range</option>
+                        <option value="0-50k">$0 - $50k</option>
+                        <option value="50k-100k">$50k - $100k</option>
+                        <option value="100k-150k">$100k - $150k</option>
+                        <option value="150k-200k">$150k - $200k</option>
+                        <option value="200k-250k">$200k - $250k</option>
+                        <option value="300k+">$300k+</option>
+                      </select>
+                    </div>
                   </div>
 
                   <div className="pt-2">

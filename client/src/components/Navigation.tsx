@@ -28,9 +28,12 @@ export function Navigation() {
     <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 transition-all duration-500 ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className={`modern-nav ${isScrolled ? 'scrolled' : ''}`}>
         <div className="flex items-center justify-between w-full px-8 py-3">
-          <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold text-white hidden sm:inline">RoleRaise</span>
-          </Link>
+          <span
+              className="flex items-center cursor-pointer"
+              onClick={() => window.location.reload()}
+            >
+              <span className="text-2xl font-extrabold" style={{ color: '#FFF', letterSpacing: '-0.5px' }}>RoleRaise</span>
+            </span>
           
           <div className="hidden md:flex items-center space-x-8">
             <button onClick={() => scrollToSection('home')} className="nav-link">Home</button>

@@ -6,6 +6,7 @@ const initialForm = {
   fullName: "",
   email: "",
   currentRole: "",
+  targetRole: "",
   experience: "",
   currentSalary: "",
   targetSalary: "",
@@ -16,7 +17,7 @@ export default function MentorshipPopupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
@@ -32,6 +33,7 @@ export default function MentorshipPopupForm() {
       params.append('fullName', form.fullName);
       params.append('email', form.email);
       params.append('currentRole', form.currentRole);
+      params.append('targetRole', form.targetRole);
       params.append('experience', form.experience);
       params.append('currentSalary', form.currentSalary);
       params.append('targetSalary', form.targetSalary);
@@ -118,6 +120,21 @@ export default function MentorshipPopupForm() {
         </div>
 
         <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="targetRole">
+            Target Role
+          </label>
+          <input
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
+            name="targetRole"
+            id="targetRole"
+            type="text"
+            required
+            value={form.targetRole}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="experience">
             Years of Experience
           </label>
@@ -137,30 +154,42 @@ export default function MentorshipPopupForm() {
           <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="currentSalary">
             Current Salary (optional)
           </label>
-          <input
+          <select
             className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
             name="currentSalary"
             id="currentSalary"
-            type="number"
-            min="0"
             value={form.currentSalary}
             onChange={handleChange}
-          />
+          >
+            <option value="">Select range</option>
+            <option value="0-50k">$0 - $50k</option>
+            <option value="50k-100k">$50k - $100k</option>
+            <option value="100k-150k">$100k - $150k</option>
+            <option value="150k-200k">$150k - $200k</option>
+            <option value="200k-250k">$200k - $250k</option>
+            <option value="300k+">$300k+</option>
+          </select>
         </div>
 
         <div className="mb-6">
           <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="targetSalary">
             Target Salary (optional)
           </label>
-          <input
+          <select
             className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:outline-none transition"
             name="targetSalary"
             id="targetSalary"
-            type="number"
-            min="0"
             value={form.targetSalary}
             onChange={handleChange}
-          />
+          >
+            <option value="">Select range</option>
+            <option value="0-50k">$0 - $50k</option>
+            <option value="50k-100k">$50k - $100k</option>
+            <option value="100k-150k">$100k - $150k</option>
+            <option value="150k-200k">$150k - $200k</option>
+            <option value="200k-250k">$200k - $250k</option>
+            <option value="300k+">$300k+</option>
+          </select>
         </div>
 
         <button

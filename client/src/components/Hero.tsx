@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, useInView, useAnimation, AnimatePresence } from "framer-motion";
 import React from "react";
 import { MentorshipForm } from "./MentorshipForm";
-import { openCalendlyPopup } from "@/lib/calendly";
 
 // Floating glassmorphism shape component
 function FloatingShape({ delay = 0, duration = 20, className = "" }) {
@@ -50,6 +49,7 @@ export function Hero() {
   const [startTypewriter, setStartTypewriter] = useState(false);
   const [typewriterComplete, setTypewriterComplete] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  // GeoIP logic disabled. Always show $200K+ headline.
   const headlineText = "Unlock $200K+ Tech Careers with Elite Mentorship";
   const toggleForm = () => setIsFormOpen(!isFormOpen);
   const typewriterText = useTypewriter(startTypewriter ? headlineText : "", 80);
@@ -139,14 +139,6 @@ export function Hero() {
               transition={{ duration: 0.3 }}
             />
           </motion.button>
-          <motion.button
-            onClick={openCalendlyPopup}
-            className="group w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-700 bg-white border-2 border-blue-700 rounded-full shadow-lg hover:shadow-xl hover:bg-blue-50 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-100"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span className="relative z-10">Book Free Call</span>
-          </motion.button>
         </motion.div>
       </div>
       {/* Mentorship Form Modal */}
@@ -233,15 +225,6 @@ export function Hero() {
               whileHover={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3 }}
             />
-          </motion.button>
-          
-          <motion.button
-            onClick={openCalendlyPopup}
-            className="group w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-700 bg-white border-2 border-blue-700 rounded-full shadow-lg hover:shadow-xl hover:bg-blue-50 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-100"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span className="relative z-10">Book Free Call</span>
           </motion.button>
         </motion.div>
       </div>

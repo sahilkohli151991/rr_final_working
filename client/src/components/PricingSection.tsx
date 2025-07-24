@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Zap, Briefcase, Award, Rocket } from 'lucide-react';
-import StripeCheckoutButton from './ui/StripeCheckoutButton';
+
 import { motion } from 'framer-motion';
 
 interface Feature {
@@ -35,7 +35,7 @@ const PricingSection = () => {
         { text: 'Resume & LinkedIn: 3 reviews', included: true },
         { text: 'Mock Interviews: 6', included: true },
         { text: 'Personalized Mentoring', included: false },
-        { text: 'Job Apply Support', included: true },
+        { text: 'Automated job applications to 200+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 2', included: true },
         { text: 'Resume Customization', included: false },
       ],
@@ -52,7 +52,7 @@ const PricingSection = () => {
         { text: 'Mock Interviews: 15', included: true },
         { text: 'Tech Mentoring: 3 sessions', included: true },
         { text: 'Behavioral Mentoring: 3 sessions', included: true },
-        { text: 'Job Apply Support: 600+ jobs', included: true },
+        { text: 'Automated job applications to 600+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 4', included: true },
         { text: 'Resume Customization', included: true },
       ],
@@ -68,7 +68,7 @@ const PricingSection = () => {
         { text: 'Mock Interviews: 25', included: true },
         { text: 'Tech Mentoring: 8 sessions', included: true },
         { text: 'Behavioral Mentoring: 8 sessions', included: true },
-        { text: 'Job Apply Support: 1000+ jobs', included: true },
+        { text: 'Automated job applications to 600+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 8', included: true },
         { text: 'Resume Customization', included: true },
       ],
@@ -76,7 +76,7 @@ const PricingSection = () => {
     {
       id: 'path',
       name: 'RaisePath',
-      level: 'Bootcamp',
+      level: 'Bootcamp (Break into tech)',
       price: { usd: 6250, inr: 95000 },
       duration: '6 months',
       features: [
@@ -84,7 +84,7 @@ const PricingSection = () => {
         { text: 'Mock Interviews: 30', included: true },
         { text: 'Tech Mentoring: 10 sessions', included: true },
         { text: 'Behavioral Mentoring: 10 sessions', included: true },
-        { text: 'Job Apply Support: 800+ jobs', included: true },
+        { text: 'Automated job applications to 600+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 8', included: true },
         { text: 'Resume Customization', included: true },
         { text: '$200 consultation credit before joining', included: true },
@@ -178,11 +178,7 @@ const PricingSection = () => {
               </div>
 
               <div className={buttonContainerClass}>
-                <StripeCheckoutButton
-                  amount={currency === 'USD' ? plan.price.usd : plan.price.inr}
-                  name={plan.name}
-                  description={`${plan.level} - ${plan.duration}`}
-                />
+                
               </div>
             </div>
           </motion.div>
