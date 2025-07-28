@@ -13,11 +13,13 @@ import "@/components/Preloader.css";
 import PaymentSuccess from "@/pages/payment-success";
 
 import PaymentCancel from "@/pages/payment-cancel";
+import ProgramsPage from "@/pages/ProgramsPage";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/programs" component={ProgramsPage} />
       <Route path="/payment-success" component={PaymentSuccess} />
       <Route path="/payment-cancel" component={PaymentCancel} />
       <Route component={NotFound} />

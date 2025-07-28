@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
+
+import logo from '../assets/roleraise_final_logo.png';
 import "./Navigation.css";
 
 export function Navigation() {
@@ -32,12 +34,15 @@ export function Navigation() {
               className="flex items-center cursor-pointer"
               onClick={() => window.location.reload()}
             >
-              <span className="text-2xl font-extrabold" style={{ color: '#FFF', letterSpacing: '-0.5px' }}>RoleRaise</span>
+              <span className="flex items-center" style={{ fontWeight: 800, fontSize: '2rem', color: '#fff', letterSpacing: '-0.5px', fontFamily: 'inherit', marginLeft: '-24px' }}>
+  <img src={logo} alt="RoleRaise Logo" style={{ maxHeight: 36, width: 'auto', marginRight: 0, verticalAlign: 'middle', filter: 'brightness(0) invert(1)' }} />
+  <span style={{ color: '#fff', fontWeight: 700, fontSize: '2rem', letterSpacing: '-0.5px', fontFamily: 'inherit', lineHeight: 1, marginLeft: '-26px', position: 'relative', top: '3px' }}>oleraise</span>
+</span>
             </span>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8" style={{ position: 'relative', top: '6px' }}>
             <button onClick={() => scrollToSection('home')} className="nav-link">Home</button>
-            <button onClick={() => scrollToSection('programs')} className="nav-link">Programs</button>
+            <Link href="/programs" className="nav-link">Programs</Link>
             <button onClick={() => scrollToSection('mentors')} className="nav-link">Mentors</button>
             <button onClick={() => scrollToSection('success')} className="nav-link">Success</button>
             <button onClick={() => scrollToSection('faq')} className="nav-link">FAQ</button>
@@ -61,7 +66,7 @@ export function Navigation() {
           <div className="mobile-nav">
             <div className="flex flex-col space-y-3 p-4">
               <button onClick={() => scrollToSection('home')} className="mobile-nav-link">Home</button>
-              <button onClick={() => scrollToSection('programs')} className="mobile-nav-link">Programs</button>
+              <Link href="/programs"><button className="mobile-nav-link" onClick={() => setIsOpen(false)}>Programs</button></Link>
               <button onClick={() => scrollToSection('mentors')} className="mobile-nav-link">Mentors</button>
               <button onClick={() => scrollToSection('success')} className="mobile-nav-link">Success</button>
               <button onClick={() => scrollToSection('faq')} className="mobile-nav-link">FAQ</button>

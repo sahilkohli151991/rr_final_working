@@ -1,3 +1,6 @@
+
+import logo from '../assets/roleraise_final_logo.png';
+
 export function Footer() {
   return (
     <div>
@@ -11,7 +14,10 @@ export function Footer() {
         </div>
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 z-10 relative">
           <div className="flex flex-col items-center md:items-start">
-            <span className="font-extrabold text-2xl tracking-tight mb-2">RoleRaise</span>
+            <span className="flex items-center mb-2" style={{ fontWeight: 800, fontSize: '2rem', color: '#fff', letterSpacing: '-0.5px', fontFamily: 'inherit' }}>
+  <img src={logo} alt="RoleRaise Logo" style={{ maxHeight: 36, width: 'auto', marginRight: 0, verticalAlign: 'middle', filter: 'brightness(0) invert(1)' }} />
+  <span style={{ color: '#fff', fontWeight: 700, fontSize: '2rem', letterSpacing: '-0.5px', fontFamily: 'inherit', lineHeight: 1, marginLeft: '-2px', position: 'relative', top: '3px' }}>oleraise</span>
+</span>
             <span className="text-blue-200 text-sm mb-3"> {new Date().getFullYear()} RoleRaise. All rights reserved.</span>
             <div className="flex gap-4 mt-2">
   {/* Social links open in new tab */}

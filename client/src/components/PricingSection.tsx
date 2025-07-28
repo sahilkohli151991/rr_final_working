@@ -106,7 +106,7 @@ const PricingSection = () => {
   };
 
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div id="pricing" className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">Choose Your Path to Success</h2>
         <p className="text-xl text-gray-600">Invest in your future with our proven mentorship programs</p>
@@ -178,7 +178,36 @@ const PricingSection = () => {
               </div>
 
               <div className={buttonContainerClass}>
-                
+                <button
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg mt-4 transition-all duration-200 disabled:opacity-50"
+                  onClick={async () => {
+                    const btn = document.activeElement;
+                    if (btn) btn.setAttribute('disabled', 'true');
+                    try {
+                      const res = await fetch('/api/create-checkout-session', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                          planName: plan.name,
+                          amount: currency === 'USD' ? plan.price.usd : plan.price.inr,
+                          currency: currency.toLowerCase(),
+                        })
+                      });
+                      const data = await res.json();
+                      if (data.url) {
+                        window.open(data.url, '_blank', 'noopener,noreferrer');
+                      } else {
+                        alert('Error creating Stripe Checkout session: ' + (data.error || 'Unknown error'));
+                      }
+                    } catch (e) {
+                      alert('Network error: ' + e);
+                    } finally {
+                      if (btn) btn.removeAttribute('disabled');
+                    }
+                  }}
+                >
+                  Pay with Stripe
+                </button>
               </div>
             </div>
           </motion.div>

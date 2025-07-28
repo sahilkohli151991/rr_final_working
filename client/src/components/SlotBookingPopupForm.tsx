@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SlotBookingPopupForm.css";
 
 interface SlotBookingPopupFormProps {
   isOpen: boolean;
@@ -62,7 +63,8 @@ export default function SlotBookingPopupForm({ isOpen, onClose, onSuccessRedirec
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md sm:max-w-lg md:max-w-xl p-4 sm:p-6 md:p-8 relative animate-fadeInUp max-h-screen overflow-y-auto">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-[95vw] sm:max-w-lg md:max-w-xl p-2 sm:p-6 md:p-8 relative animate-fadeInUp max-h-[90vh] sm:max-h-screen overflow-y-auto mobile-modal-popup">
+        {/* Responsive mobile modal styles: nearly full screen, less padding, large tap targets */}
         <button
           className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none"
           onClick={onClose}

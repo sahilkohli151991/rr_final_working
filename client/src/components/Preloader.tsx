@@ -29,21 +29,21 @@ const Preloader: React.FC<{ onComplete?: () => void }> = ({ onComplete }) => {
   return (
     <div className="preloader-bg roleraise-preloader">
       {/* RoleRaise SVG logo with glow animation */}
-      <div className="roleraise-logo-preloader">
-        <img
-          src="/roleraise_final_logo.png"
-          alt="RoleRaise Logo"
-          style={{ height: 64, width: 'auto', margin: '0 auto', display: 'block' }}
-        />
-      </div>
+      <div className="roleraise-logo-preloader" style={{ background: '#2563eb', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', width: 110, height: 110, margin: '0 auto 0.5rem auto' }}>
+  <img
+    src="/roleraise_final_logo.png"
+    alt="RoleRaise Logo"
+    style={{ height: 64, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }}
+  />
+</div>
       {/* Roleraise name fade in */}
-      <div className="roleraise-name">RoleRaise</div>
+      <div className="roleraise-name" style={{ marginTop: '0.25rem', marginBottom: '0.25rem' }}>RoleRaise</div>
       {/* Loading bar below RoleRaise */}
       {showBar && (
-        <div className="roleraise-loading-bar-container">
-          <div className={`roleraise-loading-bar${loading ? ' fill' : ''}`} />
-        </div>
-      )}
+  <div className="roleraise-loading-bar-container">
+    <div className={`roleraise-loading-bar${loading ? ' fill' : ''}`} />
+  </div>
+)}
     </div>
   );
 };
