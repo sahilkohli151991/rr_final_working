@@ -1,0 +1,38 @@
+.hero-hands-bg {
+  z-index: 0;
+}
+.hero-hands-svg {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+@keyframes hand-in-left {
+  0% { transform: translateX(-420px); }
+  80% { transform: translateX(-60px); }
+  100% { transform: translateX(0); }
+}
+@keyframes hand-in-right {
+  0% { transform: translateX(420px); }
+  80% { transform: translateX(60px); }
+  100% { transform: translateX(0); }
+}
+@keyframes handshake-shake {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-12px); }
+  50% { transform: translateY(8px); }
+  75% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+@media (max-width: 900px) {
+  .hero-hands-svg {
+    width: 100vw;
+    height: 60vw;
+    min-height: 320px;
+  }
+}
+@media (max-width: 600px) {
+  .hero-hands-svg {
+    height: 50vw;
+    min-height: 200px;
+  }
+}

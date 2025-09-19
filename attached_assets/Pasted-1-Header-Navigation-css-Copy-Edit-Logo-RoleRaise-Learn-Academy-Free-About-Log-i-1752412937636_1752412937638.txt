@@ -1,0 +1,217 @@
+1. Header & Navigation
+css
+Copy
+Edit
+[Logo: RoleRaise]   Learn ▾   Academy   Free ▾   About   [Log in ▶]
+2. Pre-Hero “Pain” Screen
+pgsql
+Copy
+Edit
+Breaking Into Tech Is Hard
+[Find out more ▶]
+Background idea: floating 3D interview-bubbles or abstract shards
+
+3. Hero
+css
+Copy
+Edit
+Let Us Make It Easy
+Technical & Strategic Interview Coaching
+
+[92% Success Rate] [+$34K Avg Increase] [6 Weeks to Offer]
+
+[Get My Free $200K+ Roadmap ▶]   [Watch 30-sec Demo ▶]
+Visual: subtle 3D geometry animation
+
+4. Programs Carousel
+nginx
+Copy
+Edit
+Targeted Career Packages, Based on Your Goals
+Cards (horizontal scroll)
+
+Beginner • Interview Mastery
+* $2,980 (40% OFF)
+* Resume & LinkedIn optimization
+* Interview prep course
+* 2 mock interviews
+* Salary negotiation guide
+* Job-search strategy session
+* Community access
+[Learn more ▶]
+
+Intermediate • Dream Job Accelerator
+* $5,980 (40% OFF)
+* Everything in Interview Mastery
+* Personal FAANG mentor
+* 5 guaranteed referrals
+* Unlimited 1:1 coaching
+* 600+ applications handled
+* Expert negotiation (+$34K avg)
+* 24/7 Slack support
+[Learn more ▶]
+
+Executive • Elite Executive
+* $8,980 (40% OFF)
+* Everything in Dream Job Accelerator
+* Dedicated career strategist
+* 10 guaranteed C-suite referrals
+* Executive presence coaching
+* Board interview prep
+* Equity negotiation masterclass
+* Priority job placement
+[Learn more ▶]
+
+5. Outcome Projections
+nginx
+Copy
+Edit
+Your Career Jump, Visualized
+Carousel/Table of Roles
+
+Role	Before → After	Time to Offer
+Software Engineer	$90K → $180K	6 weeks
+Data Scientist	$95K → $185K	7 weeks
+Product Manager	$100K → $190K	8 weeks
+UX Designer	$80K → $160K	5 weeks
+Engineering Manager	$110K → $220K	6 weeks
+Growth & Marketing Lead	$85K → $170K	6 weeks
+
+“Across functions, our members double their salaries—often in less than two months.”
+
+6. The Problem
+mathematica
+Copy
+Edit
+Why Most Candidates Fail
+95% of applicants fail to stand out. Fortune 500 acceptance < 2%.
+✗ Lack of insider insights & executive presence
+✗ Zero mock practice with senior mentors
+✗ Generic prep without a personalized roadmap
+✗ Huge skill-gaps in high-stakes, structured interviews
+
+7. Our Proven 4-Step System
+css
+Copy
+Edit
+How We Transform Your Career
+Assessment
+We analyze your skills, experience & goals to build your custom roadmap.
+
+Mentorship
+Pair with FAANG & Fortune 100 executives for 1:1 coaching.
+
+Preparation
+Intensive mock technical, case-study & leadership interviews.
+
+Success
+Land your dream role, master negotiation & get 90-day post-offer support.
+
+8. Why RoleRaise?
+nginx
+Copy
+Edit
+Meet the Founder & Team
+[Video thumbnail: “Why We Built RoleRaise” – Speak with Sahil]
+Our Credentials
+* 14 years leading digital transformations
+* $500 M+ in client value delivered
+* 100+ executive mentors across FAANG & Fortune 100
+* 1,000+ careers transformed so far
+
+9. Trusted By
+mathematica
+Copy
+Edit
+We Don’t Believe in Failure…And We Can Prove It
+Logo grid (3×3)
+Google • Amazon • Meta
+Microsoft • Netflix • Apple
+Stripe • Airbnb • LinkedIn
+
+10. Don’t Take Our Word For It
+nginx
+Copy
+Edit
+What Our Members Say
+Testimonials (masonry grid)
+
+“RoleRaise helped me jump from $90K → $165K in just six weeks—best ROI ever.”
+— Shawn S., SDE @ Meta
+
+“Their no-sell consultation mapped my skills to the perfect PM role.”
+— Neelabh D., PM @ Apptad
+
+“Mock interviews with former Amazon execs gave me unbeatable confidence.”
+— Pranjal G., Lead Data Engineer @ Innovaccer
+
+“I came in at $85K and left with offers at $185K—unbelievable!”
+— Alok A., Software Engineer @ Google
+
+“Their strategic negotiation coaching earned me an extra $40K.”
+— Jackson D., Analyst @ BAML
+
+“…I’ve never felt so prepared walking into a VP interview.”
+— Aidan B., Incoming Analyst @ Piper Sandler
+
+11. We Specialize in High-Demand Roles
+pgsql
+Copy
+Edit
+Your Path to $200K+ Careers
+6-column icon grid
+* Software Engineering (Avg. $180K+)
+* Data Science (Avg. $180K+)
+* Product Management (Avg. $190K+)
+* Design & UX (Avg. $160K+)
+* Growth & Marketing (Avg. $150K+)
+* Engineering Leadership (Avg. $220K+)
+
+12. Pricing & Guarantee
+nginx
+Copy
+Edit
+Your $200K+ Career Investment
+Package	Price	Key Benefits	CTA
+Interview Mastery	$2,980	Resume & LinkedIn, Interview course, 2 mocks, etc.	[Enroll Now ▶]
+Dream Job Accelerator	$5,980	+ FAANG mentor, 5 referrals, unlimited 1:1, etc.	[Enroll Now ▶]
+Elite Executive	$8,980	+ C-suite referrals, board prep, equity coaching	[Enroll Now ▶]
+
+90-Day Guarantee: Top-tier interviews in 90 days or your money back
+Secure Payment: Stripe, PayPal, all major cards accepted
+
+13. FAQ
+nginx
+Copy
+Edit
+Got Questions? We’ve Got Answers.
+Q: What if I don’t have FAANG experience?
+A: Our clients span 2–15+ years’ experience—and we place juniors through directors.
+
+Q: How soon will I see interviews?
+A: You’ll land at least 3 top-tier interviews in 90 days—or we’ll refund you.
+
+Q: Do you work globally?
+A: Yes—US, Canada, UK, Australia, Germany, Brazil & beyond.
+
+Q: Can’t I learn this on YouTube?
+A: Free videos lack our referral network, mock interviews & negotiation support.
+
+14. Final CTA & Lead Form
+sql
+Copy
+Edit
+Ready to Transform Your Career?
+Book your 30-minute Strategy Call now—only 7 slots left this week.
+Form fields: Full Name | Email | Current Role | Years of Experience | Current Salary | Target Salary
+Buttons:
+[Get My Free $200K+ Roadmap ▶] [Schedule Strategy Call ▶]
+
+15. Footer
+sql
+Copy
+Edit
+RoleRaise — Where Preparation Meets the Offer
+Links: Services | Success Stories | Blog | FAQ | Contact
+Contact: hello@roleraise.com | 📅 [Book via Calendly]
+© 2025 RoleRaise · Privacy · Terms

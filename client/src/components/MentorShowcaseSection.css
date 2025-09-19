@@ -1,0 +1,62 @@
+.mentor-card {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,32,128,0.10), 0 1.5px 3px rgba(0,0,0,0.03);
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+}
+.mentor-card:hover {
+  transform: scale(1.045) translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,32,128,0.14), 0 3px 8px rgba(0,0,0,0.05);
+}
+.mentor-curtain {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: linear-gradient(180deg, #e0e7ff 0%, #93c5fd 100%);
+  z-index: 20;
+  border-radius: 1.5rem;
+  transform: translateY(0%);
+  transition: transform 0.7s cubic-bezier(.77,0,.18,1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.mentor-card:hover .mentor-curtain {
+  transform: translateY(-102%);
+}
+.mentor-review {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s 0.18s cubic-bezier(.77,0,.18,1);
+}
+.mentor-card:hover .mentor-review {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mentor-review-text {
+  font-size: 1.1rem;
+  color: #234;
+  background: rgba(255,255,255,0.95);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 16px rgba(0,32,128,0.08);
+  text-align: center;
+  font-family: 'Lato', Arial, sans-serif;
+}
+.mentor-review-author {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #2563eb;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
