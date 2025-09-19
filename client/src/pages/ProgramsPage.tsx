@@ -3,6 +3,8 @@ import "./ProgramsPage.css";
 import ProgramsAccordion from "./ProgramsAccordion";
 import MarketingSoftboard from "./MarketingSoftboard";
 import ProgramsBenefitsCard from "../components/ProgramsBenefitsCard";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 const tracks = [
   {
@@ -108,10 +110,12 @@ const magnets = [
   "🌐 “Learn. Build. Deploy. Get hired.”",
 ];
 
-
-import { Footer } from "../components/Footer";
-
 export default function ProgramsPage() {
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Typewriter effect state
   const before = "Choose Your Career ";
   const transitionWord = "Transition";
@@ -156,25 +160,28 @@ export default function ProgramsPage() {
   }, []);
 
   return (
-    <div className="programs-bg user-programs-page">
-      <h1 className="programs-title">
-        <span className="typewriter-heading">
-          {displayedText}
-          <span className="programs-title-blue">{displayedTransition}</span>
-          {displayedTextEnd}
-        </span>
-      </h1>
-      <h2 className="programs-subheading">
-        Break into Tech. Level Up. Pivot Smartly. Whether you're switching careers, accelerating your growth, or aiming for leadership — RoleRaise has your roadmap.
-      </h2>
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      <div className="programs-bg user-programs-page">
+        <h1 className="programs-title">
+          <span className="typewriter-heading">
+            {displayedText}
+            <span className="programs-title-blue">{displayedTransition}</span>
+            {displayedTextEnd}
+          </span>
+        </h1>
+        <h2 className="programs-subheading">
+          Break into Tech. Level Up. Pivot Smartly. Whether you're switching careers, accelerating your growth, or aiming for leadership — RoleRaise has your roadmap.
+        </h2>
 
-      <ProgramsAccordion tracks={tracks} />
+        <ProgramsAccordion tracks={tracks} />
 
-      <ProgramsBenefitsCard />
+        {/* The ProgramsBenefitsCard is a static component that renders its own content */}
+        <ProgramsBenefitsCard />
 
-      <MarketingSoftboard magnets={magnets} />
+        <MarketingSoftboard magnets={magnets} />
+      </div>
       <Footer />
     </div>
   );
 }
-

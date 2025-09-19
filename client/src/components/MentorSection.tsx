@@ -28,12 +28,6 @@ import stripeLogo from "@assets/logo8_1752659516426.png";
 
 const mentors = [
   {
-    name: "Nimisha Sainani",
-    role: "Founder @ The Quiet Reset",
-    company: "13+ years scaling startups across India and the U.S.",
-    image: "/attached_assets/Nimisha Sainaini_1752659516427.jpeg"
-  },
-  {
     name: "Sahil Kohli",
     role: "Director at Tiger Analytics",
     company: "Ex: Deloitte",
@@ -98,6 +92,12 @@ const mentors = [
     role: "Founder & Serial Entrepreneur",
     company: "Y Combinator alum",
     image: "/attached_assets/IvanTsybaev.jpeg"
+  },
+  {
+    name: "Nimisha Sainani",
+    role: "Founder @ The Quiet Reset",
+    company: "13+ years scaling startups across India and the U.S.",
+    image: "/attached_assets/Nimisha Sainaini_1752659516427.jpeg"
   }
 ];
 

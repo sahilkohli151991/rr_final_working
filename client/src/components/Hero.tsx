@@ -49,8 +49,28 @@ export function Hero() {
   const [startTypewriter, setStartTypewriter] = useState(false);
   const [typewriterComplete, setTypewriterComplete] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  // GeoIP logic disabled. Always show $200K+ headline.
-  const headlineText = "Unlock $200K+ Tech Careers with Elite Mentorship";
+  const [isIndia, setIsIndia] = useState(false);
+  
+  // Detect user's location for salary text
+  useEffect(() => {
+    const detectLocation = async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        setIsIndia(data.country === 'IN');
+      } catch (error) {
+        console.error('Error detecting location, defaulting to USD:', error);
+        setIsIndia(false);
+      }
+    };
+
+    detectLocation();
+  }, []);
+
+  const headlineText = isIndia 
+    ? "Unlock 35LPA+ Tech Careers with Elite Mentorship"
+    : "Unlock $200K+ Tech Careers with Elite Mentorship";
+    
   const toggleForm = () => setIsFormOpen(!isFormOpen);
   const typewriterText = useTypewriter(startTypewriter ? headlineText : "", 80);
 
