@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 
+import { scrollToSection } from "../utils/scrollToSection";
 import logo from '../assets/roleraise_final_logo.png';
 import "./Navigation.css";
 
@@ -18,11 +19,8 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleSectionClick = (sectionId: string) => {
+    scrollToSection(sectionId);
     setIsOpen(false);
   };
 
@@ -30,24 +28,60 @@ export function Navigation() {
     <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 transition-all duration-500 ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className={`modern-nav ${isScrolled ? 'scrolled' : ''}`}>
         <div className="flex items-center justify-between w-full px-8 py-3">
-          <span
-              className="flex items-center cursor-pointer"
-              onClick={() => window.location.reload()}
-            >
-              <span className="flex items-center" style={{ fontWeight: 800, fontSize: '2rem', color: '#fff', letterSpacing: '-0.5px', fontFamily: 'inherit', marginLeft: '-24px' }}>
-  <img src={logo} alt="RoleRaise Logo" style={{ maxHeight: 36, width: 'auto', marginRight: 0, verticalAlign: 'middle', filter: 'brightness(0) invert(1)' }} />
-  <span style={{ color: '#fff', fontWeight: 700, fontSize: '2rem', letterSpacing: '-0.5px', fontFamily: 'inherit', lineHeight: 1, marginLeft: '-26px', position: 'relative', top: '3px' }}>oleraise</span>
-</span>
+          <a 
+            href="http://localhost:5100"
+            className="flex items-center no-underline"
+            style={{ textDecoration: 'none', cursor: 'pointer' }}
+          >
+            <span className="flex items-center" style={{ fontWeight: 800, fontSize: '2rem', color: '#fff', letterSpacing: '-0.5px', fontFamily: 'inherit', marginLeft: '-24px' }}>
+              <img src={logo} alt="RoleRaise Logo" style={{ maxHeight: 36, width: 'auto', marginRight: 0, verticalAlign: 'middle', filter: 'brightness(0) invert(1)' }} />
+              <span style={{ color: '#fff', fontWeight: 700, fontSize: '2rem', letterSpacing: '-0.5px', fontFamily: 'inherit', lineHeight: 1, marginLeft: '-26px', position: 'relative', top: '3px' }}>oleraise</span>
             </span>
+          </a>
           
           <div className="hidden md:flex items-center space-x-8" style={{ position: 'relative', top: '6px' }}>
-            <button onClick={() => scrollToSection('home')} className="nav-link">Home</button>
+            <Link href="/" className="nav-link">Home</Link>
             <Link href="/programs" className="nav-link">Programs</Link>
-            <button onClick={() => scrollToSection('mentors')} className="nav-link">Mentors</button>
-            <button onClick={() => scrollToSection('success')} className="nav-link">Success</button>
-            <button onClick={() => scrollToSection('faq')} className="nav-link">FAQ</button>
-            <button onClick={() => scrollToSection('contact')} className="nav-link">Contact</button>
-            {/* TODO: Replace logo_role.png with a transparent PNG for better blending. Current logo has a white background. */}
+            <a 
+              href="/#mentors" 
+              className="nav-link"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSectionClick('mentors');
+              }}
+            >
+              Mentors
+            </a>
+            <a 
+              href="/#success" 
+              className="nav-link"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSectionClick('success');
+              }}
+            >
+              Success
+            </a>
+            <a 
+              href="/#faq" 
+              className="nav-link"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSectionClick('faq');
+              }}
+            >
+              FAQ
+            </a>
+            <a 
+              href="/#contact" 
+              className="nav-link"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSectionClick('contact');
+              }}
+            >
+              Contact
+            </a>
           </div>
           
           <div className="md:hidden">

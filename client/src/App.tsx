@@ -8,10 +8,10 @@ import { MouseTracker } from "@/components/MouseTracker";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 import Preloader from "@/components/Preloader";
+import { CurrencyProvider } from "@/contexts/CurrencyContext";
 import "@/components/Preloader.css";
 
 import PaymentSuccess from "@/pages/payment-success";
-
 import PaymentCancel from "@/pages/payment-cancel";
 import ProgramsPage from "@/pages/ProgramsPage";
 
@@ -42,10 +42,11 @@ function App() {
       {!loading && (
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
-            
-            <MouseTracker />
-            <Toaster />
-            <Router />
+            <CurrencyProvider>
+              <MouseTracker />
+              <Toaster />
+              <Router />
+            </CurrencyProvider>
           </TooltipProvider>
         </QueryClientProvider>
       )}
