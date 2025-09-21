@@ -53,18 +53,26 @@ export function Hero() {
   
   // Detect user's location for salary text
   useEffect(() => {
-    const detectLocation = async () => {
+    let didCancel = false;
+    const detectLocation = async (retry = 0) => {
       try {
-        const response = await fetch('https://ipapi.co/json/');
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 3000);
+        const response = await fetch('https://ipapi.co/json/', { signal: controller.signal });
+        clearTimeout(timeout);
+        if (!response.ok) throw new Error('Non-OK response');
         const data = await response.json();
-        setIsIndia(data.country === 'IN');
+        if (!didCancel) setIsIndia(data.country === 'IN');
       } catch (error) {
-        console.error('Error detecting location, defaulting to USD:', error);
-        setIsIndia(false);
+        if (retry < 2) {
+          setTimeout(() => detectLocation(retry + 1), 1000);
+        } else {
+          if (!didCancel) setIsIndia(false);
+        }
       }
     };
-
     detectLocation();
+    return () => { didCancel = true; };
   }, []);
 
   const headlineText = isIndia 

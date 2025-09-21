@@ -29,7 +29,7 @@ export function Navigation() {
       <div className={`modern-nav ${isScrolled ? 'scrolled' : ''}`}>
         <div className="flex items-center justify-between w-full px-8 py-3">
           <a 
-            href="http://localhost:5100"
+            href="/"
             className="flex items-center no-underline"
             style={{ textDecoration: 'none', cursor: 'pointer' }}
           >

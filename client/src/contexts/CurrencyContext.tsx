@@ -15,21 +15,33 @@ export const CurrencyProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [isIndia, setIsIndia] = useState(false);
 
   useEffect(() => {
-    const detectLocation = async () => {
+    let didCancel = false;
+    const detectLocation = async (retry = 0) => {
       try {
-        const response = await fetch('https://ipapi.co/json/');
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 3000);
+        const response = await fetch('https://ipapi.co/json/', { signal: controller.signal });
+        clearTimeout(timeout);
+        if (!response.ok) throw new Error('Non-OK response');
         const data = await response.json();
         const isUserInIndia = data.country === 'IN';
-        setIsIndia(isUserInIndia);
-        setCurrency(isUserInIndia ? 'INR' : 'USD');
+        if (!didCancel) {
+          setIsIndia(isUserInIndia);
+          setCurrency(isUserInIndia ? 'INR' : 'USD');
+        }
       } catch (error) {
-        console.error('Error detecting location, defaulting to USD:', error);
-        setCurrency('USD');
-        setIsIndia(false);
+        if (retry < 2) {
+          setTimeout(() => detectLocation(retry + 1), 1000);
+        } else {
+          if (!didCancel) {
+            setCurrency('USD');
+            setIsIndia(false);
+          }
+        }
       }
     };
-
     detectLocation();
+    return () => { didCancel = true; };
   }, []);
 
   return (
