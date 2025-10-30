@@ -9,8 +9,8 @@ import {
 } from './ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import payalImage from "@assets/payal_1752659516427.jpeg";
-import nimishaImage from "@assets/Nimisha Sainaini_1752659516427.jpeg";
 import rajatImage from "@assets/Rajat_1752659516427.jpeg";
+import nimishaImage from "@assets/Nimisha Sainaini_1752659516427.jpeg";
 import akhilImage from "@assets/akhil_1752659516424.jpeg";
 import sahilChaudhryImage from "@assets/sahilc_1752659516428.jpeg";
 import nickImage from "@assets/Nick Parker_1752659516426.jpeg";

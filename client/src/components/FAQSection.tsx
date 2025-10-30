@@ -64,10 +64,6 @@ const faqs = [
     a: "Our mentors are ex-Google, Meta, Amazon, and other FAANG leaders with real hiring experience."
   },
   {
-    q: "What is the money-back guarantee?",
-    a: "If you don’t land a qualifying offer within the program period, you get a full refund—no questions asked."
-  },
-  {
     q: "How are sessions delivered?",
     a: "All sessions are 1:1 and remote, scheduled flexibly to fit your calendar."
   },
