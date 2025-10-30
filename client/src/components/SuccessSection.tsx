@@ -11,14 +11,6 @@ import Autoplay from 'embla-carousel-autoplay';
 
 const testimonials = [
   {
-    name: "Neelabh Dubey",
-    role: "Product Manager @ Apptad",
-    quote:
-      "Being on STEM OPT had its challenges, but with the network and support from RoleRaise, I was able to land my role at Apptad. I'm truly grateful for their guidance.",
-    rating: 5,
-    image: "/attached_assets/Neelabh_1752003812461_1752651945620.jpeg",
-  },
-  {
     name: "Pranjal Gupta",
     role: "Lead Data Engineer @ Innovaccer",
     quote:

@@ -1,0 +1,6 @@
+# Requirements for RoleRaise Project (Node.js/React/Express)
+# Install with: pip install <package> (for Python), npm install <package> (for Node.js)
+# This file lists only Python dependencies. For Node.js, use package.json.
+
+# No Python-specific dependencies detected in project source.
+# If your backend uses Python, please specify your requirements here.
