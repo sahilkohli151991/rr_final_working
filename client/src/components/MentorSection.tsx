@@ -98,6 +98,11 @@ const mentors = [
     role: "Founder @ The Quiet Reset",
     company: "13+ years scaling startups across India and the U.S.",
     image: "/attached_assets/Nimisha Sainaini_1752659516427.jpeg"
+  },
+  {
+    name: "Naveen Kohli",
+    role: "Founder & Serial Entrepreneur",
+    image: "/attached_assets/Naveen_kohli_profile_picture.jpeg"
   }
 ];
 
