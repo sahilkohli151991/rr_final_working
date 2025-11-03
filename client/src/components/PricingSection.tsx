@@ -103,7 +103,6 @@ const PricingSection = () => {
         { text: 'Automated job applications to 600+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 6', included: true },
         { text: 'Resume Customization', included: true },
-        { text: `${consultationCredit} consultation credit before joining`, included: true },
       ],
     },
   ];
