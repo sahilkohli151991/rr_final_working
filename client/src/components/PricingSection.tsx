@@ -30,7 +30,7 @@ const PricingSection = () => {
       id: 'flow',
       name: 'RaiseFlow',
       level: 'Starter',
-      price: { usd: 199, inr: 4999 },
+      price: { usd: 199, inr: 8999 },
       duration: 'Monthly',
       popular: true,
       features: [
@@ -45,7 +45,7 @@ const PricingSection = () => {
       id: 'pulse',
       name: 'RaisePulse',
       level: 'Beginner',
-      price: { usd: 720, inr: 9999 },
+      price: { usd: 720, inr: 18999 },
       duration: '3 months',
       features: [
         { text: 'Resume & LinkedIn: 3 reviews', included: true },
@@ -60,7 +60,7 @@ const PricingSection = () => {
       id: 'power',
       name: 'RaisePower',
       level: 'Intermediate',
-      price: { usd: 3600, inr: 17999 },
+      price: { usd: 3600, inr: 49999 },
       duration: '6 months',
       popular: true,
       features: [
@@ -77,7 +77,7 @@ const PricingSection = () => {
       id: 'pinnacle',
       name: 'RaisePinnacle',
       level: 'Advanced',
-      price: { usd: 5000, inr: 23999 },
+      price: { usd: 5000, inr: 79999 },
       duration: '6 months',
       features: [
         { text: 'Resume & LinkedIn: 5 reviews', included: true },
@@ -93,7 +93,7 @@ const PricingSection = () => {
       id: 'path',
       name: 'RaisePath',
       level: 'Bootcamp (Break into tech)',
-      price: { usd: 6250, inr: 29999 },
+      price: { usd: 6250, inr: 89999 },
       duration: '6 months',
       features: [
         { text: 'Resume building included', included: true },
@@ -103,7 +103,6 @@ const PricingSection = () => {
         { text: 'Automated job applications to 250+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 8', included: true },
         { text: 'Resume Customization', included: true },
-        { text: `${consultationCredit} consultation credit before joining`, included: true },
       ],
     },
   ];
