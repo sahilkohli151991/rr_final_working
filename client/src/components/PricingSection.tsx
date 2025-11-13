@@ -35,10 +35,10 @@ const PricingSection = () => {
       popular: true,
       features: [
         { text: 'Resume & LinkedIn: 1 review', included: true },
-        { text: 'Resume Customization', included: true },
         { text: 'Mock Interviews: 3', included: true },
-        { text: 'Automated job applications to 120+ roles on your behalf.', included: true },
-        { text: 'Guaranteed Referrals: 2', included: true },
+        { text: 'Automated job applications to 50+ roles on your behalf.', included: true },
+        { text: 'Guaranteed Referrals: 1', included: true },
+        { text: 'Resume Customization', included: true },
       ],
     },
     {
@@ -51,7 +51,7 @@ const PricingSection = () => {
         { text: 'Resume & LinkedIn: 3 reviews', included: true },
         { text: 'Mock Interviews: 6', included: true },
         { text: 'Personalized Mentoring', included: true },
-        { text: 'Automated job applications to 200+ roles on your behalf.', included: true },
+        { text: 'Automated job applications to 100+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 2', included: true },
         { text: 'Resume Customization', included: true },
       ],
@@ -68,7 +68,7 @@ const PricingSection = () => {
         { text: 'Mock Interviews: 15', included: true },
         { text: 'Tech Mentoring: 3 sessions', included: true },
         { text: 'Behavioral Mentoring: 3 sessions', included: true },
-        { text: 'Automated job applications to 600+ roles on your behalf.', included: true },
+        { text: 'Automated job applications to 150+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 4', included: true },
         { text: 'Resume Customization', included: true },
       ],
@@ -84,7 +84,7 @@ const PricingSection = () => {
         { text: 'Mock Interviews: 25', included: true },
         { text: 'Tech Mentoring: 8 sessions', included: true },
         { text: 'Behavioral Mentoring: 8 sessions', included: true },
-        { text: 'Automated job applications to 600+ roles on your behalf.', included: true },
+        { text: 'Automated job applications to 200+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 8', included: true },
         { text: 'Resume Customization', included: true },
       ],
@@ -100,7 +100,7 @@ const PricingSection = () => {
         { text: 'Mock Interviews: 30', included: true },
         { text: 'Tech Mentoring: 10 sessions', included: true },
         { text: 'Behavioral Mentoring: 10 sessions', included: true },
-        { text: 'Automated job applications to 600+ roles on your behalf.', included: true },
+        { text: 'Automated job applications to 250+ roles on your behalf.', included: true },
         { text: 'Guaranteed Referrals: 8', included: true },
         { text: 'Resume Customization', included: true },
         { text: `${consultationCredit} consultation credit before joining`, included: true },
@@ -168,11 +168,24 @@ const PricingSection = () => {
                   )}
                 </div>
                 <p className="mt-2 text-sm text-gray-500">{plan.level}</p>
-                <p className="mt-4 text-4xl font-bold text-gray-900">
-                  {currency === 'USD' ? '$' : '₹'}
-                  {currency === 'USD' ? plan.price.usd.toLocaleString() : plan.price.inr.toLocaleString()}
-                </p>
-                <p className="mt-1 text-sm text-gray-500">{plan.duration}</p>
+                <div className="mt-4">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-gray-400 line-through">
+                      {currency === 'USD' ? '$' : '₹'}
+                      {currency === 'USD' ? (plan.price.usd * 2).toLocaleString() : (plan.price.inr * 2).toLocaleString()}
+                    </span>
+                    <span className="bg-gradient-to-r from-red-500 to-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                      {Math.round((1 - (currency === 'USD' ? plan.price.usd : plan.price.inr) / (currency === 'USD' ? plan.price.usd * 2 : plan.price.inr * 2)) * 100)}% OFF
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span className="text-4xl font-bold text-blue-600">
+                      {currency === 'USD' ? '$' : '₹'}
+                      {currency === 'USD' ? plan.price.usd.toLocaleString() : plan.price.inr.toLocaleString()}
+                    </span>
+                    <span className="text-sm text-gray-500">{plan.duration}</span>
+                  </div>
+                </div>
 
                 <ul className="mt-6 space-y-4">
                   {plan.features.map((feature, featureIndex) => (
@@ -273,11 +286,24 @@ const PricingSection = () => {
                   )}
                 </div>
                 <p className="mt-2 text-sm text-gray-500">{plan.level}</p>
-                <p className="mt-4 text-4xl font-bold text-gray-900">
-                  {currency === 'USD' ? '$' : '₹'}
-                  {currency === 'USD' ? plan.price.usd.toLocaleString() : plan.price.inr.toLocaleString()}
-                </p>
-                <p className="mt-1 text-sm text-gray-500">{plan.duration}</p>
+                <div className="mt-4">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-gray-400 line-through">
+                      {currency === 'USD' ? '$' : '₹'}
+                      {currency === 'USD' ? (plan.price.usd * 2).toLocaleString() : (plan.price.inr * 2).toLocaleString()}
+                    </span>
+                    <span className="bg-gradient-to-r from-red-500 to-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                      {Math.round((1 - (currency === 'USD' ? plan.price.usd : plan.price.inr) / (currency === 'USD' ? plan.price.usd * 2 : plan.price.inr * 2)) * 100)}% OFF
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2 mt-1">
+                    <span className="text-4xl font-bold text-blue-600">
+                      {currency === 'USD' ? '$' : '₹'}
+                      {currency === 'USD' ? plan.price.usd.toLocaleString() : plan.price.inr.toLocaleString()}
+                    </span>
+                    <span className="text-sm text-gray-500">{plan.duration}</span>
+                  </div>
+                </div>
 
                 <ul className="mt-6 space-y-4">
                   {plan.features.map((feature, featureIndex) => (

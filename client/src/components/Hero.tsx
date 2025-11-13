@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, useInView, useAnimation, AnimatePresence } from "framer-motion";
 import React from "react";
 import { MentorshipForm } from "./MentorshipForm";
+import { ReferralBadge } from "./ReferralBadge";
 
 // Floating glassmorphism shape component
 function FloatingShape({ delay = 0, duration = 20, className = "" }) {
@@ -95,6 +96,8 @@ export function Hero() {
 
   return (
     <section id="home" ref={heroRef} className="relative min-h-screen h-screen flex flex-col justify-center items-center bg-gradient-to-br from-slate-50 via-white to-blue-50 px-4 pt-0 pb-0 overflow-hidden">
+      {/* Referral Program Flasher Badge (Expandable) */}
+      <ReferralBadge />
       {/* Glassmorphism floating shapes background */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <FloatingShape delay={0} duration={25} className="w-64 h-64 top-20 left-10 opacity-60" />
