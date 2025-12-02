@@ -36,9 +36,6 @@ const PricingSection = () => {
       features: [
         { text: 'Resume & LinkedIn: 1 review', included: true },
         { text: 'Mock Interviews: 3', included: true },
-        { text: 'Automated job applications to 50+ roles on your behalf.', included: true },
-        { text: 'Guaranteed Referrals: 1', included: true },
-        { text: 'Resume Customization', included: true },
       ],
     },
     {
@@ -50,10 +47,6 @@ const PricingSection = () => {
       features: [
         { text: 'Resume & LinkedIn: 3 reviews', included: true },
         { text: 'Mock Interviews: 6', included: true },
-        { text: 'Personalized Mentoring', included: true },
-        { text: 'Automated job applications to 100+ roles on your behalf.', included: true },
-        { text: 'Guaranteed Referrals: 2', included: true },
-        { text: 'Resume Customization', included: true },
       ],
     },
     {
@@ -66,11 +59,10 @@ const PricingSection = () => {
       features: [
         { text: 'Resume & LinkedIn: 5 reviews', included: true },
         { text: 'Mock Interviews: 15', included: true },
-        { text: 'Tech Mentoring: 3 sessions', included: true },
-        { text: 'Behavioral Mentoring: 3 sessions', included: true },
-        { text: 'Automated job applications to 150+ roles on your behalf.', included: true },
-        { text: 'Guaranteed Referrals: 4', included: true },
-        { text: 'Resume Customization', included: true },
+        { text: 'Tech Mentoring: 12 sessions', included: true },
+        { text: 'Behavioral Mentoring: 3 sessions', included: true },      
+        { text: 'Job Referral Support', included: true },
+        
       ],
     },
     {
@@ -82,11 +74,10 @@ const PricingSection = () => {
       features: [
         { text: 'Resume & LinkedIn: 5 reviews', included: true },
         { text: 'Mock Interviews: 25', included: true },
-        { text: 'Tech Mentoring: 8 sessions', included: true },
+        { text: 'Tech Mentoring: 20 sessions', included: true },
         { text: 'Behavioral Mentoring: 8 sessions', included: true },
-        { text: 'Automated job applications to 200+ roles on your behalf.', included: true },
-        { text: 'Guaranteed Referrals: 8', included: true },
-        { text: 'Resume Customization', included: true },
+        { text: 'Job Referral Support', included: true },
+       
       ],
     },
     {
@@ -98,11 +89,10 @@ const PricingSection = () => {
       features: [
         { text: 'Resume building included', included: true },
         { text: 'Mock Interviews: 30', included: true },
-        { text: 'Tech Mentoring: 10 sessions', included: true },
+        { text: 'Tech Mentoring: 24 sessions', included: true },
         { text: 'Behavioral Mentoring: 10 sessions', included: true },
-        { text: 'Automated job applications to 250+ roles on your behalf.', included: true },
-        { text: 'Guaranteed Referrals: 8', included: true },
-        { text: 'Resume Customization', included: true },
+        { text: 'Job Referral Support', included: true },
+        
       ],
     },
   ];
