@@ -96,11 +96,6 @@ const mentors = [
     name: "Naveen Kohli",
     role: "Founder & Serial Entrepreneur",
     image: "/attached_assets/Naveen_kohli_profile_picture.jpeg"
-  },
-  {
-    name: "Jitendra Sahu",
-    role: "Director – Talent Strategy & Hiring Excellence",
-    image: "/attached_assets/jitendra.jpeg"
   }
 ];
 
@@ -142,20 +137,15 @@ export function MentorSection() {
                       whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(99,91,255,0.10)' }}
                       whileTap={{ scale: 0.97 }}
                     >
-                      <div className="w-24 h-24 rounded-full border-2 border-blue-100 mb-4 overflow-hidden">
-                        <img
-                          src={mentor.image}
-                          alt={mentor.name}
-                          className={`w-full h-full object-cover ${mentor.name === 'Jitendra Sahu' ? 'scale-90' : ''}`}
-                          style={{
-                            objectPosition: mentor.name === 'Jitendra Sahu' ? 'center 30%' : 'center center'
-                          }}
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = 'https://via.placeholder.com/150';
-                          }}
-                        />
-                      </div>
+                      <img
+                        src={mentor.image}
+                        alt={mentor.name}
+                        className="w-24 h-24 rounded-full object-cover border-2 border-blue-100 mb-4"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = 'https://via.placeholder.com/150';
+                        }}
+                      />
                       <h3 className="text-lg font-bold text-gray-900 mb-1">{mentor.name}</h3>
                       <div className="text-blue-700 text-sm font-semibold mb-1">{mentor.role}</div>
                       <div className="text-xs text-gray-500 text-center">{mentor.company}</div>
@@ -183,20 +173,15 @@ export function MentorSection() {
                 whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(99,91,255,0.10)' }}
                 whileTap={{ scale: 0.97 }}
               >
-                <div className="w-24 h-24 rounded-full border-2 border-blue-100 mb-4 overflow-hidden">
-                  <img
-                    src={mentor.image}
-                    alt={mentor.name}
-                    className={`w-full h-full object-cover ${mentor.name === 'Jitendra Sahu' ? 'scale-90' : ''}`}
-                    style={{
-                      objectPosition: mentor.name === 'Jitendra Sahu' ? 'center 30%' : 'center center'
-                    }}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = 'https://via.placeholder.com/150';
-                    }}
-                  />
-                </div>
+                <img
+                  src={mentor.image}
+                  alt={mentor.name}
+                  className="w-24 h-24 rounded-full object-cover border-2 border-blue-100 mb-4"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://via.placeholder.com/150';
+                  }}
+                />
                 <h3 className="text-lg font-bold text-gray-900 mb-1">{mentor.name}</h3>
                 <div className="text-blue-700 text-sm font-semibold mb-1">{mentor.role}</div>
                 <div className="text-xs text-gray-500 text-center">{mentor.company}</div>
