@@ -30,7 +30,7 @@ const PricingSection = () => {
       id: 'flow',
       name: 'RaiseFlow',
       level: 'Starter',
-      price: { usd: 199, inr: 8999 },
+      price: { usd: 400, inr: 17999 },
       duration: 'Monthly',
       popular: true,
       features: [
@@ -42,7 +42,7 @@ const PricingSection = () => {
       id: 'pulse',
       name: 'RaisePulse',
       level: 'Beginner',
-      price: { usd: 720, inr: 18999 },
+      price: { usd: 1440, inr: 38999 },
       duration: '3 months',
       features: [
         { text: 'Resume & LinkedIn: 3 reviews', included: true },
@@ -53,7 +53,7 @@ const PricingSection = () => {
       id: 'power',
       name: 'RaisePower',
       level: 'Intermediate',
-      price: { usd: 3600, inr: 49999 },
+      price: { usd: 7200, inr: 99999 },
       duration: '6 months',
       popular: true,
       features: [
@@ -69,7 +69,7 @@ const PricingSection = () => {
       id: 'pinnacle',
       name: 'RaisePinnacle',
       level: 'Advanced',
-      price: { usd: 5000, inr: 79999 },
+      price: { usd: 10000, inr: 149999 },
       duration: '6 months',
       features: [
         { text: 'Resume & LinkedIn: 5 reviews', included: true },
@@ -84,7 +84,7 @@ const PricingSection = () => {
       id: 'path',
       name: 'RaisePath',
       level: 'Bootcamp (Break into tech)',
-      price: { usd: 6250, inr: 89999 },
+      price: { usd: 12500, inr: 179999 },
       duration: '6 months',
       features: [
         { text: 'Resume building included', included: true },
