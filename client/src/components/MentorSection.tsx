@@ -17,7 +17,7 @@ import nickImage from "@assets/Nick Parker_1752659516426.jpeg";
 import rajImage from "@assets/Raj_1752659516427.jpeg";
 import shubhiImage from "@assets/Shubhi_1752659516428.jpeg";
 import alokImage from "@assets/Alok_1752659516425.jpeg";
-import nitilImage from "@assets/Nitil_1752659516427.jpeg";
+// import nitilImage from "@assets/Nitil_1752659516427.jpeg";
 import kpmgLogo from "@assets/logo1_1752659516425.png";
 import googleLogo from "@assets/logo2_1752659516425.png";
 import beOneLogo from "@assets/logo3_1752659516426.png";
@@ -26,11 +26,17 @@ import metaLogo from "@assets/logo5_1752659516426.png";
 import stripeLogo from "@assets/logo8_1752659516426.png";
 
 const mentors = [
-  {
-    name: "Nitil D",
-    role: "Generative AI & BI Architect at Tiger Analytics",
-    company: "Ex: Pepsico",
-    image: "/attached_assets/Nitil_1752659516427.jpeg"
+  // {
+  //   name: "Nitil D",
+  //   role: "Generative AI & BI Architect at Tiger Analytics",
+  //   company: "Ex: Pepsico",
+  //   image: "/attached_assets/Nitil_1752659516427.jpeg"
+  // },
+ {
+    name: "Nick Parker",
+    role: "Sr. Director Engineering at Fannie Mae",
+    company: "Ex: Prudential Financial",
+    image: "/attached_assets/Nick Parker_1752659516426.jpeg"
   },
   {
     name: "Rajat Kohli",
@@ -49,12 +55,6 @@ const mentors = [
     role: "Senior Manager Cloud and DevOps at KPMG Global",
     company: "Ex: Deloitte",
     image: "/attached_assets/sahilc_1752659516428.jpeg"
-  },
-  {
-    name: "Nick Parker",
-    role: "Sr. Director Engineering at Fannie Mae",
-    company: "Ex: Prudential Financial",
-    image: "/attached_assets/Nick Parker_1752659516426.jpeg"
   },
   {
     name: "Raj Kumar",
